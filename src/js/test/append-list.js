@@ -1,3 +1,4 @@
+// assertのインポート
 import assert from 'assert';
 import { appendList } from '../append-list';
 
