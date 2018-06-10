@@ -9,6 +9,14 @@
 ## Docker部分
 以下のURLを参考  
 [【初心者向け】Dockerで手軽にNode.js開発環境構築 (2)](https://qiita.com/yukin01/items/4f54496fd2f577c56b1d)
+
+やりたいこと
+
+ローカルのpackage.jsonをコンテナの中に移動
+npm install
+
+上記をDockerfile, またはdocker-compose.ymlで実施
+
 ---------------------
 
 元のREADME

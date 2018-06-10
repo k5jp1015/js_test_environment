@@ -8,10 +8,18 @@ FROM node:8.9.4-alpine
 ENV NODE_ENV=development
 
 # 雛形を生成するのに必要なパッケージのイントール(いらなくなるかも)
-RUN npm install -g express-generator@4.16.0
+# RUN npm install -g express-generator@4.16.0
+
+# ADD package.json /app/
 
 # ディレクトリを移動する
 WORKDIR /app
+
+# RUN npm install mocha --save-development
+# RUN npm install chai --save-development
+# RUN npm install assert --ave-development
+# RUN npm install babel-preset-es2015 --save-development
+# RUN npm install babel-register --save-development
 
 # ポート3000番を開放する
 EXPOSE 3000
