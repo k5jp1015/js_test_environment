@@ -6,7 +6,7 @@ services:
     container_name: node
     tty: true
     volumes:
-        # - ./node/app:/app
         - ../TestEnvironment:/app
+        - /app/node_modules
     ports:
         - "8080:3000"
