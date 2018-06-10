@@ -20,18 +20,18 @@ function sampleResolve2(value) {
     })
 }
 
-async function sample() {
+async function sampleAsyncAwait() {
     const [a, b] = await Promise.all([sampleResolve(5), sampleResolve(10)]);
     const c = await sampleResolve2(b);
 
-    return [a, b, c];
+    return Promise.resolve([a, b, c]);
 }
 
-sample().then(([a, b, c]) => {
+sampleAsyncAwait().then(([a, b, c]) => {
     console.log(a, b, c); // => 5 10 20
 });
 
 // モジュールを外出しする場合はexportで指定する
-export {helloFunc}
+export {helloFunc, sampleAsyncAwait}
 
 // このjsをnodeで実効する場合は`node --require babel-register  src/js/mokumoku_function.js`のようにbabel-registerを拡張機能として使う必要がある
