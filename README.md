@@ -5,6 +5,10 @@
 テスト実行コマンド  
 ` $(npm bin)/mocha --require babel-register src/js/test/*.js`
 
+
+## Docker部分
+以下のURLを参考  
+[【初心者向け】Dockerで手軽にNode.js開発環境構築 (2)](https://qiita.com/yukin01/items/4f54496fd2f577c56b1d)
 ---------------------
 
 元のREADME
