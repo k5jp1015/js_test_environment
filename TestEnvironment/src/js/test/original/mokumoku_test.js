@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {helloFunc, sampleAsyncAwait} from "../mokumoku_function";
+import {helloFunc, sampleAsyncAwait} from "../../mokumoku_function";
 
 describe('helloFunc', function(){
     it('初歩的なテスト', ()=>{

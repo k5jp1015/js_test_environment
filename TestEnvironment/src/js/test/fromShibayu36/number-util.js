@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { addNumber, subtractNumber } from "../number-util";
+import { addNumber, subtractNumber } from "../../number-util";
 
 describe('addNumber', function () {
     it('足し算できる', () => {

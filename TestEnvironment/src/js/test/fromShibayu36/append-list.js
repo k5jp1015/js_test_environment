@@ -1,6 +1,6 @@
 // assertのインポート
 import assert from 'assert';
-import { appendList } from '../append-list';
+import { appendList } from '../fromShibayu36/append-list';
 
 describe('appendList', function () {
   it('コンテナにリストを追加できる', function () {

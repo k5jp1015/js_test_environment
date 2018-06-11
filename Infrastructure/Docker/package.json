@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-register src/js/test/*js"
+    "test": "mocha --require babel-register src/js/test/*/*js"
   },
   "author": "",
   "license": "ISC",
