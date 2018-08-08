@@ -2,14 +2,17 @@ import {
     helloFunc,
     sampleAsyncAwait,
     addFuncAsyncAwait,
+    AssertValidation,
     TypeValidation
 } from "../../mokumoku_function";
+
 import {
     doesNotReject
 } from "assert";
 
 const expect = require('chai').expect;
 const assert = require('chai').assert;
+const should = require('chai').should();
 
 async function add(a, b) {
     return Promise.resolve(a + b)
@@ -53,6 +56,20 @@ describe('From mokumoku_function.js',() => {
         const p = await addFuncAsyncAwait(5,10);
         expect(p).to.equal(15);
     })
+});
+
+describe('AssertValidation Test Sample', () => {
+    const assertValidation = new AssertValidation();
+
+    it('Errorのthrowに関するテスト 第二引数無し', ()=>{
+
+        (function(){assertValidation.getMontName(13)}).should.throw(Error);
+    });
+
+    it('Errorのthrowに関するテスト 第二引数有り', ()=>{
+        // throwの第2引数を指定することでエラーメッセージに関するテストも実行することができる
+        (function(){assertValidation.getMontName(13)}).should.throw(Error,'mo must 1~12');
+    });
 });
 
 describe('TypeValidation Test Sample', () =>{

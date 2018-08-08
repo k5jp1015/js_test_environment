@@ -37,6 +37,23 @@ async function addFuncAsyncAwait(value1, value2) {
     return Promise.resolve(a + b);
 }
 
+// assertテスト用のクラス
+class AssertValidation{
+
+    constructor(){}
+
+    getMontName(mo){
+        mo = mo-1; // 配列の添え字のために月の数を調整する (1=Jan, 12=Dec)
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+            "Aug", "Sep", "Oct", "Nov", "Dec"];
+        if (months[mo] !== undefined) {
+            return months[mo];
+        } else {
+            throw new Error('mo must 1~12');
+        }
+    }
+}
+
 // Typeのバリデーションテスト用クラスの作成
 class TypeValidation{
     constructor(){}
@@ -62,7 +79,12 @@ class TypeValidation{
     }
 }
 
+// 外部APIからのjson取得メソッドのためのクラス
+class ApiResponseValidation{
+    constructor(){}
+}
+
 // モジュールを外出しする場合はexportで指定する(クラスもExportできる)
-export {helloFunc, sampleAsyncAwait, addFuncAsyncAwait, TypeValidation}
+export {helloFunc, sampleAsyncAwait, addFuncAsyncAwait, AssertValidation, TypeValidation}
 
 // このjsをnodeで実効する場合は`node --require babel-register  src/js/mokumoku_function.js`のようにbabel-registerを拡張機能として使う必要がある
