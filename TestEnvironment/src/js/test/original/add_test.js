@@ -3,7 +3,8 @@ import {
     sampleAsyncAwait,
     addFuncAsyncAwait,
     AssertValidation,
-    TypeValidation
+    TypeValidation,
+    ApiResponseValidation
 } from "../../mokumoku_function";
 
 import {
@@ -81,4 +82,9 @@ describe('TypeValidation Test Sample', () =>{
     it('Boolean型テスト',() => {assert.isBoolean(typeValidation.getBoolean()),'型指定 Boolean'});
     it('Object型テスト' ,() => {assert.isObject(typeValidation.getObject()),'型指定 Object'});
 });
+
+describe('API', () => {
+    const apiResponseValidation = new ApiResponseValidation();
+    apiResponseValidation.callTsutsuziBusApi();
+})
 

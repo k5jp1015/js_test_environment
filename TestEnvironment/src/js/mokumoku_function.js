@@ -38,12 +38,12 @@ async function addFuncAsyncAwait(value1, value2) {
 }
 
 // assertテスト用のクラス
-class AssertValidation{
+class AssertValidation {
 
-    constructor(){}
+    constructor() { }
 
-    getMontName(mo){
-        mo = mo-1; // 配列の添え字のために月の数を調整する (1=Jan, 12=Dec)
+    getMontName(mo) {
+        mo = mo - 1; // 配列の添え字のために月の数を調整する (1=Jan, 12=Dec)
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
             "Aug", "Sep", "Oct", "Nov", "Dec"];
         if (months[mo] !== undefined) {
@@ -55,36 +55,48 @@ class AssertValidation{
 }
 
 // Typeのバリデーションテスト用クラスの作成
-class TypeValidation{
-    constructor(){}
+class TypeValidation {
+    constructor() { }
 
-    getString(){
+    getString() {
         return 'String';
     }
 
-    getArray(){
-        return [1,2,3];
+    getArray() {
+        return [1, 2, 3];
     }
 
-    getNumber(){
+    getNumber() {
         return 1;
     }
 
-    getBoolean(){
+    getBoolean() {
         return true;
     }
 
-    getObject(){
-        return {hoge:'hogehoge'};
+    getObject() {
+        return { hoge: 'hogehoge' };
     }
 }
 
+const webClient = require('request');
 // 外部APIからのjson取得メソッドのためのクラス
-class ApiResponseValidation{
-    constructor(){}
+class ApiResponseValidation {
+    constructor() { }
+
+    callTsutsuziBusApi() {
+        webClient.get({
+            url: 'http://tutujibus.com/busstopLookup.php',
+            qs: {
+                rosenid:10
+            }
+        },function(error, response, body) {
+            console.log(body);
+        })
+    }
 }
 
 // モジュールを外出しする場合はexportで指定する(クラスもExportできる)
-export {helloFunc, sampleAsyncAwait, addFuncAsyncAwait, AssertValidation, TypeValidation}
+export { helloFunc, sampleAsyncAwait, addFuncAsyncAwait, AssertValidation, TypeValidation, ApiResponseValidation }
 
 // このjsをnodeで実効する場合は`node --require babel-register  src/js/mokumoku_function.js`のようにbabel-registerを拡張機能として使う必要がある
