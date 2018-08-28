@@ -85,14 +85,28 @@ class ApiResponseValidation {
     constructor() { }
 
     callTsutsuziBusApi() {
-        webClient.get({
+
+        // request-promiseを使ってPromise形で取得し、Promiseの中に値を設定して返す
+        const rp = require('request-promise');
+        const options = {
             url: 'http://tutujibus.com/busstopLookup.php',
             qs: {
                 rosenid:10
-            }
-        },function(error, response, body) {
-            console.log(body);
-        })
+            },
+            headers: {
+                'User-Agent': 'Request-Promise'
+            },
+            json: true
+        };
+
+       return rp(options)
+            .then(function(repos){
+                const jsonStr = String(repos).slice(1).slice(0, -1);
+                return JSON.parse(jsonStr);
+            })
+            .catch(function(err){
+                return 'error';
+            });
     }
 }
 

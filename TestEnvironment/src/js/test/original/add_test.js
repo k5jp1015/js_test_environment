@@ -83,8 +83,11 @@ describe('TypeValidation Test Sample', () =>{
     it('Object型テスト' ,() => {assert.isObject(typeValidation.getObject()),'型指定 Object'});
 });
 
-describe('API', () => {
+describe('API', async function() {
     const apiResponseValidation = new ApiResponseValidation();
-    apiResponseValidation.callTsutsuziBusApi();
+    // Promise型で返ってくる
+    const response = await apiResponseValidation.callTsutsuziBusApi();
+    // console.log(response.busstop[0]);
+    it('APIの確認テスト', () => {expect(response.busstop[0].id).to.equal('415')});
 })
 
