@@ -108,6 +108,11 @@ class ApiResponseValidation {
                 return 'error';
             });
     }
+
+    getBusStopInfo(busStopInfo, id){
+        // const busStopInfo = await this.callTsutsuziBusApi();
+        return busStopInfo.busstop.filter(obj => obj.id === String(id))[0];
+    }
 }
 
 // モジュールを外出しする場合はexportで指定する(クラスもExportできる)

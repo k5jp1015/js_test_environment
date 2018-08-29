@@ -83,11 +83,25 @@ describe('TypeValidation Test Sample', () =>{
     it('Object型テスト' ,() => {assert.isObject(typeValidation.getObject()),'型指定 Object'});
 });
 
-describe('API', async function() {
-    const apiResponseValidation = new ApiResponseValidation();
-    // Promise型で返ってくる
-    const response = await apiResponseValidation.callTsutsuziBusApi();
-    // console.log(response.busstop[0]);
-    it('APIの確認テスト', () => {expect(response.busstop[0].id).to.equal('415')});
-})
+describe('API', function() {
+    // it('APIの確認テスト', async function() {
+    //     this.timeout(10000);
+    //     const apiResponseValidation = new ApiResponseValidation();
+    //     // Promise型で返ってくる
+    //     const response = await apiResponseValidation.callTsutsuziBusApi();
+    //     // console.log(response.busstop[0]);
+    //     expect(response.busstop[0].id).to.equal('415')
+    // });
+
+    it('APIからの取得結果を用いたメソッドのテスト（NOT スタブ）',async function(){
+        this.timeout(10000);
+        const apiResponseValidation = new ApiResponseValidation();
+        const response = await apiResponseValidation.callTsutsuziBusApi();
+        const info = await apiResponseValidation.getBusStopInfo(response,415);
+        expect(info.name).to.equal('嚮陽会館内');
+    });
+
+    // getBusStopInfoのテストをしたいときに、いちいちAPI通信しないで良いようにスタブを作成する
+
+});
 
