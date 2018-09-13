@@ -3,11 +3,13 @@
 ## 各種コマンド
 
 テスト実行コマンド  
-`$(npm bin)/mocha --require babel-register src/js/test/*.js`
+`npx mocha --require babel-register src/js/test/*/*.js`
+
+- test配下に存在するテストコードに対してテストメソッドを実行する
 
 純粋にJSの実行コマンド  
-`node --require babel-register  src/js/mokumoku_function.js`
-- --require 拡張機能の指定 babel-registerを利用していることでES2015でソースを記載していても対応しているようにしている
+`node --require babel-register  src/js/sample_functions.js`
+- --require 拡張機能の指定 babel-registerを利用していることでES2015でソースを記載していても対応しているようにしている
 
 ------------
 

@@ -34,4 +34,4 @@ sampleAsyncAwait().then(([a, b, c]) => {
 // モジュールを外出しする場合はexportで指定する
 export {helloFunc, sampleAsyncAwait}
 
-// このjsをnodeで実効する場合は`node --require babel-register  src/js/mokumoku_function.js`のようにbabel-registerを拡張機能として使う必要がある
+// このjsをnodeで実効する場合は`node --require babel-register  src/js/sample_functions.js`のようにbabel-registerを拡張機能として使う必要がある

@@ -1,7 +1,7 @@
 import {
     helloFunc,
     sampleAsyncAwait
-} from "../mokumoku_function";
+} from "../sample_functions";
 import {
     doesNotReject
 } from "assert";

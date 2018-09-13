@@ -5,15 +5,28 @@ import {
     AssertValidation,
     TypeValidation,
     ApiResponseValidation
-} from "../../mokumoku_function";
-
-import {
-    doesNotReject
-} from "assert";
+} from "../../sample_functions";
 
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 const should = require('chai').should();
+
+describe('helloFunc', function(){
+    it('初歩的なテスト', ()=>{
+        assert.equal(helloFunc('keigo'),"hello,keigo","");
+    });
+});
+
+describe('sampleAsyncAwait', async function(){
+    this.timeout(10000);
+
+    it('async/await', async function(){
+
+        let result = await sampleAsyncAwait();
+        console.log(result);
+        assert.deepEqual(result, [5,10,20], "async/await");
+    });
+});
 
 async function add(a, b) {
     return Promise.resolve(a + b)
@@ -41,7 +54,7 @@ describe('#add()', () => {
 
 });
 
-describe('From mokumoku_function.js',() => {
+describe('From sample_functions.js',() => {
     it('sampleAsyncAwait', async function () {
         // timeoutはarrow functionだとエラーになる
         // ある適度時間がかかる非同期処理のテストはtimeoutの設定するのが吉
@@ -84,14 +97,6 @@ describe('TypeValidation Test Sample', () =>{
 });
 
 describe('API', function() {
-    // it('APIの確認テスト', async function() {
-    //     this.timeout(10000);
-    //     const apiResponseValidation = new ApiResponseValidation();
-    //     // Promise型で返ってくる
-    //     const response = await apiResponseValidation.callTsutsuziBusApi();
-    //     // console.log(response.busstop[0]);
-    //     expect(response.busstop[0].id).to.equal('415')
-    // });
 
     it('APIからの取得結果を用いたメソッドのテスト（NOT スタブ）',async function(){
         this.timeout(10000);
