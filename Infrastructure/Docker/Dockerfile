@@ -10,7 +10,9 @@ ENV NODE_ENV=development
 # ディレクトリを移動する
 WORKDIR /app
 
+# カレントディレクトリにあるpackage.jsonをコンテナ内の/app/に配置
 ADD package.json /app/
+# コンテナ内でnpm installコマンドを実行
 RUN npm install
 
 # ポート3000番を開放する
