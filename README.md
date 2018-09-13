@@ -25,10 +25,10 @@ Dockerでテスト環境コンテナ作って、コンテナにログインし�
 [【初心者向け】Dockerで手軽にNode.js開発環境構築 (2)](https://qiita.com/yukin01/items/4f54496fd2f577c56b1d)
 
 イメージの作成
-`docker-compose build`
+`docker-compose -f Infrastructure/docker-compose.yml build`
 
 コンテナの起動(デタッチモードで起動)
-`docker-compose up -d`
+`docker-compose -f Infrastructure/docker-compose.yml up -d`
 
 コンテナに入る
 `docker exec -it node /bin/sh`
@@ -36,7 +36,12 @@ Dockerでテスト環境コンテナ作って、コンテナにログインし�
 ※コンテナに入ったら下記のテスト実行コマンドを叩けば良い
 
 ### テスト実行コマンド
-` $(npm bin)/mocha --require babel-register src/js/test/*/*.js`
+`npx mocha --require babel-register src/js/test/*/*.js`
+
+### 補足
+純粋にJSの実行コマンド  
+`node --require babel-register  src/js/sample_functions.js`
+- --require 拡張機能の指定 babel-registerを利用していることでES2015でソースを記載していても対応しているようにしている
 
 ---------------------
 
